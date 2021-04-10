@@ -1,0 +1,25 @@
+<div class="row">
+  <div class = "col-9">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th scope="row">Ticker</th>
+          <th scope="row">Name</th>
+          <th scope="row">Last Price</th>
+          <th scope="row">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= @my_stocks.each do |stock| %>
+          <tr>
+            <td><%= stock.ticker %></td>
+            <td><%= stock.name %></td>
+            <td><%= stock.last_price %></td>
+            <td><%= link_to 'Remove', user_stock_path(stock), method: :delete,
+                            data: {confirm: "Are you sure?"},
+                            class: "btn btn-sm btn-warning" %></td>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
