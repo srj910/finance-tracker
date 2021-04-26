@@ -1,0 +1,27 @@
+<div class="row">
+  <div class = "col-9">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th scope="row">Friend Name</th>
+          <th scope="row">Friend email</th>
+          <th scope="row">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= @my_friends.each do |friend| %>
+          <tr>
+            <td><%= friend.full_name %></td>
+            <td><%= friend.email %></td>
+            <td><%= link_to 'View profile', user_path(friend),
+                    class: 'btn btn-sm btn-success' %>
+                <%= link_to 'Unfriend', friendship_path(friend), method: :delete,
+                            data: {confirm: "Are you sure?"},
+                            class: "btn btn-sm btn-warning" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
